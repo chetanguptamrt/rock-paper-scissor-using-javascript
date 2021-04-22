@@ -4,27 +4,23 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        
         <style>
             .changesize {
-                padding-top: 30px;
-                padding-bottom: 30px;
+                padding-top: 40px;
+                padding-bottom: 40px;
             }
-            
         </style>
-        
         <title>Game | Chetan Gupta</title>
     </head>
     <body>
 
         <nav class="navbar navbar-expand justify-content-between navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./index.html">
                 <!-- <img src="./bg.png" width="30" height="30" class="d-inline-block align-top" alt="nav"> -->
                 Rock Paper Scissors
             </a>
-            <button onclick="window.open('https://github.com/chetanguptamrt/Tic-Tac-Toe-Using-HTML-JavaScript')" class="btn text-light btn-outline-secondary ">Source Code</button>
+            <button onclick="window.open('https://github.com/chetanguptamrt/rock-paper-scissor-using-javascript')" class="btn text-light btn-outline-secondary ">Source Code</button>
         </nav>
 
         <div class="container-fluid">
@@ -46,10 +42,10 @@
             
             <div class="row changesize">
                 <div class="col-xl-4 offset-xl-1 col-lg-4 offset-lg-1 col-md-4 offset-md-1 col-sm-6 col-6 text-center">
-                    <img class="img-fluid" src="./img/p1.jpg" />
+                    <img id="myPic" class="img-fluid" src="./img/r1.jpg" />
                 </div>
                 <div class="col-xl-4 offset-xl-2 col-lg-4 offset-lg-2 col-md-4 offset-md-2 col-sm-6 col-6 text-center">
-                    <img class="img-fluid" src="./img/s2.jpg" />
+                    <img id="computerPic" class="img-fluid" src="./img/r2.jpg" />
                 </div>
             </div>
         </div>
@@ -57,22 +53,78 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-2 offset-xl-2 col-lg-2 offset-lg-2 col-md-2 offset-md-2 col-sm-2 offset-sm-2 col-2 offset-2 text-center">
-                    <button class="btn btn-dark rounded p-0" style="width: 80px;"><span><img class="img-fluid" src="./img/c1.png"/></span> </button>
+                    <button id="btn1" class="btn btn-dark rounded p-0" style="width: 80px;"><span><img class="img-fluid" src="./img/c1.png"/></span> </button>
                 </div>
                 <div class="col-xl-2 offset-xl-1 col-lg-2 offset-lg-1 col-md-2 offset-md-1 col-sm-2 offset-sm-1 col-2 offset-1 text-center">
-                    <button class="btn btn-dark rounded p-0" style="width: 80px;"><span><img class="img-fluid" src="./img/c2.png"/></span> </button>
+                    <button id="btn2" class="btn btn-dark rounded p-0" style="width: 80px;"><span><img class="img-fluid" src="./img/c2.png"/></span> </button>
                 </div>
                 <div class="col-xl-2 offset-xl-1 col-lg-2 offset-lg-1 col-md-2 offset-md-1 col-sm-2 offset-sm-1 col-2 offset-1 text-center">
-                    <button class="btn btn-dark rounded p-0" style="width: 80px;"><span><img class="img-fluid" src="./img/c3.png"/></span> </button>
+                    <button id="btn3" class="btn btn-dark rounded p-0" style="width: 80px;"><span><img class="img-fluid" src="./img/c3.png"/></span> </button>
                 </div>
             </div>
+            
+            <br/>
+            <h6 class="text-center text-success">Enjoy the game!</h6>
         </div>
-        <br/><br/>
+        <br/>
 
-        <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function(){
+                var a = 0;
+                var b = 0;
+                var c = 0;
+                var arr=["./img/p2.jpg","./img/r2.jpg","./img/s2.jpg"];
+                $("#btn1").on("click",function(event){                    
+                    document.getElementById("myPic").src = "./img/r1.jpg";
+                    let n = Math.floor(Math.random()*3);
+                    document.getElementById("computerPic").src = arr[n];
+                    if(n==0){
+                        c+=1;
+                        document.getElementById("computerPoint").innerHTML = c;
+                    } else if(n==1){
+                        b+=1;
+                        document.getElementById("tiedPoint").innerHTML = b;
+                    } else if(n==2){
+                        a+=1;
+                        document.getElementById("myPoint").innerHTML = a;
+                    }
+                });
+                $("#btn2").on("click",function(event){
+                    document.getElementById("myPic").src = "./img/p1.jpg";
+                    let n = Math.floor(Math.random()*3);
+                    document.getElementById("computerPic").src = arr[n];
+                    if(n==0){
+                        b+=1;
+                        document.getElementById("tiedPoint").innerHTML = b;
+                    } else if(n==1){
+                        a+=1;
+                        document.getElementById("myPoint").innerHTML = a;
+                    } else if(n==2){
+                        c+=1;
+                        document.getElementById("computerPoint").innerHTML = c;
+                    }
+                });
+                $("#btn3").on("click",function(event){
+                    document.getElementById("myPic").src = "./img/s1.jpg";
+                    let n = Math.floor(Math.random()*3);
+                    document.getElementById("computerPic").src = arr[n];
+                    if(n==0){
+                        a+=1;
+                        document.getElementById("myPoint").innerHTML = a;
+                    } else if(n==1){
+                        c+=1;
+                        document.getElementById("computerPoint").innerHTML = c;
+                    } else if(n==2){
+                        b+=1;
+                        document.getElementById("tiedPoint").innerHTML = b;
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
