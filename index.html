@@ -81,10 +81,14 @@
                 var a = 0;
                 var b = 0;
                 var c = 0;
+                var last = 0;
                 var arr=["./img/p2.jpg","./img/r2.jpg","./img/s2.jpg"];
                 $("#btn1").on("click",function(event){                    
                     document.getElementById("myPic").src = "./img/r1.jpg";
                     let n = Math.floor(Math.random()*3);
+                    if(last==n){
+                        n = Math.floor(Math.random()*3);
+                    }   
                     document.getElementById("computerPic").src = arr[n];
                     if(n==0){
                         c+=1;
@@ -100,6 +104,9 @@
                 $("#btn2").on("click",function(event){
                     document.getElementById("myPic").src = "./img/p1.jpg";
                     let n = Math.floor(Math.random()*3);
+                    if(last==n){
+                        n = Math.floor(Math.random()*3);
+                    }   
                     document.getElementById("computerPic").src = arr[n];
                     if(n==0){
                         b+=1;
@@ -115,6 +122,9 @@
                 $("#btn3").on("click",function(event){
                     document.getElementById("myPic").src = "./img/s1.jpg";
                     let n = Math.floor(Math.random()*3);
+                    if(last==n){
+                        n = Math.floor(Math.random()*3);
+                    }   
                     document.getElementById("computerPic").src = arr[n];
                     if(n==0){
                         a+=1;
